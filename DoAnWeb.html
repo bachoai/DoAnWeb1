@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div id="container">
+            <div id="top">
+                <div>Thong tin cong ty</div>
+                <div>
+                    <button>Đăng ký</button>
+                    <button>Đăng nhập</button>
+                    <button>Giỏ hàng</button>
+                </div>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li>Trang chu</li>
+                    <li>Thong tin tuyen sinh</li>
+                    <li class="submenu">Chuong trinh dao tao
+                        <ul class="item">
+                            <li>Nganh CNTT</li>
+                            <li>Nganh KTPM</li>
+                            <li>Nganh HTTT</li>
+                            <li>Nganh KHMT</li>
+                        </ul></li>
+                    <li>Lien he</li>
+                </ul>
+            </div>
+            <div id="middle">
+                <div id="L">
+                    <div>left Trang Chủ (liên kết ngoại)</div>
+                    <div>Thong tin tuyen sinh</div>
+                    <div>Thong tin dau ra</div>
+                    <div>Gioi thieu</div>
+                    <div>Lien he</div>
+                    <div>Day la the div</div>
+                    <div>Day la the p</div>
+                </div>
+                <div id="C">
+                    <div id="container1">
+                        <div id="c1">
+                            <div>
+                                <img src="./img/book1.webp" alt="38 buc thu rockefeller viet cho con trai" height="200">
+                            </div>
+                            <div class="radio">
+                                <input type="radio" id="1" checked="true">
+                                <input type="radio" id="2">
+                                <input type="radio" id="3">
+                                <input type="radio" id="4">
+                                <input type="radio" id="5">
+                            </div>
+                            <div>Mã sp</div>
+                            <hr>
+                            <div>Tên sp</div>
+                            <hr>
+                            <div>Giá sp</div>
+                            <hr>
+                            <div>
+                                <button>Mua</button>
+                                <button>Chi Tiet</button>
+                                <button id="thuchien">Thực Hiện</button>
+                            </div>
+                            <hr>
+                        </div>
+                        <div id="c2">
+                            <img src="./img/book2.webp" alt="tu duy nguoc"  height="200">
+                            <div class="radio">
+                                <input type="radio" id="1" checked="true">
+                                <input type="radio" id="2">
+                                <input type="radio" id="3">
+                                <input type="radio" id="4">
+                                <input type="radio" id="5">
+                            </div>
+                            <input type="radio" name="" id="">
+                            <div>Mã sp</div>
+                            <hr>
+                            <div>Tên sp</div>
+                            <hr>
+                            <div>Giá sp</div>
+                            <hr>
+                            <div>
+                                <button>Mua</button>
+                                <button>Chi Tiet</button>
+                                <button id="thuchien">Thực Hiện</button>
+                            </div>
+                            <hr>
+                        </div>
+                        <div id="c3">
+                            <img src="./img/book3.webp" alt="quan ly thoi gian thong minh" height="200">
+                            <div class="radio">
+                                <input type="radio" id="1" checked="true">
+                                <input type="radio" id="2">
+                                <input type="radio" id="3">
+                                <input type="radio" id="4">
+                                <input type="radio" id="5">
+                            </div>
+                            <div>Mã sp</div>
+                            <hr>
+                            <div>Tên sp</div>
+                            <hr>
+                            <div>Giá sp</div>
+                            <hr>
+                            <div>
+                                <button>Mua</button>
+                                <button>Chi Tiet</button>
+                                <button id="thuchien">Thực Hiện</button>
+                            </div>
+                            <hr>
+                        </div>
+                        <div id="c4">
+                            <img src="./img/book4.webp" alt="KE AI KY" height="200">
+                            <div class="radio">
+                                <input type="radio" id="1" checked="true">
+                                <input type="radio" id="2">
+                                <input type="radio" id="3">
+                                <input type="radio" id="4">
+                                <input type="radio" id="5">
+                            </div>
+                            <div>Mã sp</div>
+                            <hr>
+                            <div>Tên sp</div>
+                            <hr>
+                            <div>Giá sp</div>
+                            <hr>
+                            <div>
+                                <button>Mua</button>
+                                <button>Chi Tiet</button>
+                                <button id="thuchien">Thực Hiện</button>
+                            </div>
+                            <hr>
+                        </div>
+                </div>
+            </div>
+            <div id="R">R</div>
+        </div>
+        <div id="last">F</div>
+     </div>
+     <script>
+        document.querySelectorAll('.radio input[type="radio"]').forEach(radio => {
+            radio.addEventListener('click', function() {
+                const container = this.closest('#c1');
+                const img = container.querySelector('img');
+                document.querySelectorAll('.radio input[type="radio"]').forEach(r => {
+                    if (r !== this) {
+                        r.checked = false;
+                    }
+                });
+                const imgSrc = `./img/book1_${this.id - 1}.webp`;
+                img.src = imgSrc;
+                if (this.id === '1') {
+                    img.src = './img/book1.webp';
+                }
+            });
+        });
+        document.getElementById('thuchien').addEventListener('click', function() {
+            const radios = document.querySelectorAll('.radio input[type="radio"]');
+            let index = 0;
+            const interval = setInterval(() => {
+            radios[index].click();
+            index++;
+            if (index >= radios.length) {
+                clearInterval(interval);
+                setTimeout(() => {
+                index = 0;
+                radios[index].click(); // Reset to the first radio button after 3 seconds
+                }, 3000); // Wait for 3 seconds
+            }
+            }, 1000); // Change radio every 1 second
+        });
+        window.onload= () => {
+                var brand=[
+                    {brandid:'adidas', brandname:"Giầy adidas"},
+                    {brandid:'nike', brandname:"Giầy nike"},
+                    {brandid:'gucci', brandname:"Giầy gucci"},
+                    {brandid:'balenciaga', brandname:"Giầy balenciaga"},
+                ];
+                
+                var s="";
+                for(i=0;i<brand.length;i++)
+                {   
+                    var a='<a href="#"><li id='+ brand[i].brandid +' onclick="hienthi1(this);">'+ brand[i].brandname + '</li></a>'; 
+                        s+=a;
+                }
+                //alert(s);
+                s='<ul>'+s+'</ul>';
+                document.getElementById("L").innerHTML=s;
+                //console.log(s);
+        }
+     </script>
+  </body>
+</html>
